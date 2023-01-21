@@ -1,50 +1,49 @@
 import React, { useState } from 'react';
 import studiesOne from '../images/studiesOne.jpg'
 import { useEffect } from 'react';
+//import axios from 'axios';
 
 const RegistrationForm = () => {
 
-    const [student,setStudent] = useState({uName:'',rollNum:'',emailID:'',mobileNum:0})
+    const [student,setStudent] = useState({})
     const [userName,setUserName] = useState("");
     const [rollNo,setRollNo] = useState("");
     const [emailId,setEmailId] = useState("");
     const [mobileNo,setMobileNO] = useState(0);
-
     useEffect(()=>{
-        setStudent({
-            uName:userName,
-            rollNum:rollNo,
-            emailID:emailId,
-            mobileNum:mobileNo
-        });
-        console.log(student);
+        setStudent({userName:userName, rollNo:rollNo, emailId:emailId, mobileNo:mobileNo});
     },[userName,rollNo,emailId,mobileNo])
+    const register = (event) => {
+        event.preventDefault();
+        //axios.post("url",student);
+        //console.log(student);
+    }
 
     return(
-        <div className='image' style={{backgroundImage:`url(${studiesOne})`}}>
+        <div class='ui fluid image' style={{backgroundImage:`url(${studiesOne})`, backgroundSize:'cover'}}>
         <div className="ui inverted segment" style={{marginLeft:'35%', marginRight:'35%', marginTop:'5%'}}>
             <h1>Registration Form</h1>
-            <form className="ui inverted form">
+            <form className="ui inverted form" onSubmit={register}>
                 <div>
                     <div className="field">
                         <label>User Name</label>
-                            <input type="text" placeholder="user name" onChange={(event)=>setUserName(event.target.value)} value={userName}/>
+                            <input type="text" placeholder="user name" onChange={event=>{setUserName(event.target.value)}} value={userName}/>
                     </div>
                     <div className="field">
                         <label>Roll No</label>
-                            <input type="text" placeholder="roll no..." onChange={event=>setRollNo(event.target.value)} value={rollNo}/>
+                            <input type="text" placeholder="roll no..." onChange={event=>{setRollNo(event.target.value)}} value={rollNo}/>
                     </div>
                     <div className="field">
                         <label>Email Id</label>
-                            <input type="text" placeholder="email id..." onChange={event=>setEmailId(event.target.value)} value={emailId}/>
+                            <input type="text" placeholder="email id..." onChange={event=>{setEmailId(event.target.value)}} value={emailId}/>
                     </div>
                     <div className="field">
                         <label>Mobile No</label>
-                            <input type="number" placeholder="mobile no..." onChange={event=>setMobileNO(event.target.value)} value={mobileNo}/>
+                            <input type="number" placeholder="mobile no..." onChange={event=>{setMobileNO(event.target.value)}} value={mobileNo}/>
                     </div>
                 </div>
                 <div className="field"><br/>
-                <button className="ui button" type="submit" style={{marginLeft:'35%', marginRight:'35%'}}>Register</button>
+                <button className="ui button" type="submit" style={{marginLeft:'35%', marginRight:'35%'}} onClick={register}>Register</button>
                 </div>
             </form>
         </div>
