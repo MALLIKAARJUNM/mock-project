@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import studiesOne from '../images/studiesOne.jpg'
+import imgTwo from '../images/imgTwo.jpg'
 import { useEffect } from 'react';
-//import axios from 'axios';
 
 const RegistrationForm = () => {
 
@@ -16,14 +15,17 @@ const RegistrationForm = () => {
     const register = (event) => {
         event.preventDefault();
         //axios.post("url",student);
-        //console.log(student);
+        console.log(student);
     }
 
     return(
-        <div class='ui fluid image' style={{backgroundImage:`url(${studiesOne})`, backgroundSize:'cover'}}>
-        <div className="ui inverted segment" style={{marginLeft:'35%', marginRight:'35%', marginTop:'5%'}}>
+        <div className='ui background' style={{backgroundImage:`url(${imgTwo})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
+            <div className="ui centered grid container" style={{marginLeft:'35%', marginRight:'35%', marginTop:'5%'}}>
+    <div className="nine wide column">
+      <div className="ui fluid card">
+        <div className="ui inverted segment">
             <h1>Registration Form</h1>
-            <form className="ui inverted form" onSubmit={register}>
+            <form className="ui inverted form" action="/Login" onSubmit={register}>
                 <div>
                     <div className="field">
                         <label>User Name</label>
@@ -42,10 +44,14 @@ const RegistrationForm = () => {
                             <input type="number" placeholder="mobile no..." onChange={event=>{setMobileNO(event.target.value)}} value={mobileNo}/>
                     </div>
                 </div>
-                <div className="field"><br/>
-                <button className="ui button" type="submit" style={{marginLeft:'35%', marginRight:'35%'}} onClick={register}>Register</button>
+                <div className="field" style={{marginLeft:'25%', marginRight:'15%'}}><br/>
+                <button className="ui button" type="submit" style={{marginRight:'20%'}}><a href="/LoginForm">Register</a></button>
+                <button className="ui button" style={{marginRight:'5%'}}><a href="/LoginForm">Login</a></button>
                 </div>
             </form>
+            </div>
+            </div>
+            </div>
         </div>
         </div>
     )
