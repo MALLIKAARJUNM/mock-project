@@ -17,36 +17,36 @@ const Home = () => {
         </div>
         </h1>
         </div>
-        <div class="ui three column grid" style={{textAlign:'center'}}>
-  <div class="column" style={{marginLeft:'5%'}}>
-      <a href="/InstructionPage">
-    <div class="ui card">
-      <div class="image">
+        <div className="ui three column grid" style={{textAlign:'center'}}>
+  <div className="column" style={{marginLeft:'5%'}}>
+      <a href="/Instructions">
+    <div className="ui card">
+      <div className="ui image">
         <img src={imgFour}/>
       </div>
-      <div class="content">
-        <a class="header">Logical</a>
+      <div className="ui content">
+        <a className="ui header">Test-1</a>
       </div>
     </div>
     </a>
   </div>
-  <div class="column">
-    <div class="ui card">
-      <div class="image">
+  <div className="column">
+    <div className="ui card">
+      <div className="ui image">
         <img src={imgFive} />
       </div>
-      <div class="content">
-        <a class="header">Verbal</a>
+      <div className="ui content">
+        <a className="ui header">Test-2</a>
       </div>
     </div>
   </div>
-  <div class="column" style={{marginRight:'-5%'}}>
-    <div class="ui card">
-      <div class="image">
+  <div className="column" style={{marginRight:'-5%'}}>
+    <div className="ui card">
+      <div className="ui image">
         <img src={imgSix} />
       </div>
-      <div class="content">
-        <a class="header">Numerical</a>
+      <div className="ui content">
+        <a className="ui header">Test-3</a>
       </div>
     </div>
   </div>
