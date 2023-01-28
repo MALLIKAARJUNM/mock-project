@@ -1,10 +1,18 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import imgSeven from '../images/imgSeven.jpg';
-import TestPage from './TestPage.js';
+import {useNavigate} from 'react-router-dom';
 
 const Instructions = () => {
 
-    const [questions, setQuestions] = useState([{question:'Who invented the Internet?',
+//     const [questions, setQuestions] = useState([{question:'Who invented the Internet?',
+// options:['Steve Jobs','More than one person','Al Gore','William Shockley'],
+// answer:'More than one person',
+// savedAnswer:''},
+// {question:'This man is known for starting the company Microsoft back in the year 1975. Since then, he has become one of the richest people in the world. What is the name of this person?',
+// options:['Steve Jobs','Bill Gates','Konrad Zuse','Charles Babbage'],
+// answer:'Bill Gates',
+// savedAnswer:''}]);
+const [questions, setQuestions] = useState([{question:'Who invented the Internet?',
 options:['Steve Jobs','More than one person','Al Gore','William Shockley'],
 answer:'More than one person',
 savedAnswer:''},
@@ -12,18 +20,17 @@ savedAnswer:''},
 options:['Steve Jobs','Bill Gates','Konrad Zuse','Charles Babbage'],
 answer:'Bill Gates',
 savedAnswer:''}]);
+const navigate = useNavigate();
 
-const onHandle = (questions) => {
-    return(
-        <div>
-            <TestPage questions={questions}/>
-            </div>
-        )
-}
 
-const populateQuestions = (questions) => {
-    questions.forEach(onHandle);
-    window.open("/TestPage");
+// const onHandle = (questions) => {
+//     questions.forEach(sendData);
+// }
+
+const sendData = () => {
+    //setQuestions("Who invented the Internet?");
+    console.log(questions.length);
+    navigate("/TestPage",{state:{questions:questions[0]}});
 }
 
     return(
@@ -46,7 +53,7 @@ const populateQuestions = (questions) => {
 </ul>
 All the best!!
             </p>
-            <button class="positive ui button" style={{marginLeft:'47%'}} onClick={populateQuestions}>Start</button>
+            <button class="positive ui button" style={{marginLeft:'47%'}} onClick={sendData}>Start</button>
         </div>
     )
 }

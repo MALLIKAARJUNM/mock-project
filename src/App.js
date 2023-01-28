@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
 import LoginForm from './component/LoginForm.js'
 import RegistrationForm from './component/RegistrationForm.js';
@@ -12,6 +12,7 @@ import Instructions from './component/Instructions.js';
 import TestPage from './component/TestPage.js';
 
 function App() {
+  //const [questions, setQuestions] = useState("");
   return (
     <div>
       <BrowserRouter>

@@ -1,9 +1,12 @@
 import React, { useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import imgEight from '../images/imgEight.jpg';
 
-const TestPage = (props) => {
+const TestPage = () => {
 
     const [radioCheck, setRadioCheck] = useState('');
+    var questions = useState("");
+    const location = useLocation();
 
     const onReset = (event) => {
         setRadioCheck('');
@@ -12,8 +15,8 @@ const TestPage = (props) => {
     return(
         <div className='ui background' style={{backgroundImage:`url(${imgEight})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
         <div className='ui container' style={{marginTop:'5%', marginLeft:'20%'}}>
-            <div class="ui content" style={{fontSize:'20px'}}>
-                {props.question}
+            <div className="ui content" style={{fontSize:'20px'}}>
+                {location.state.questions.question}
                 </div>
                 <br />
                     <form className='ui form'>
@@ -22,7 +25,7 @@ const TestPage = (props) => {
                         <div className='column'>
                     <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={'radioCheckOne'} checked={radioCheck==='radioCheckOne'} onClick={event=>setRadioCheck(event.target.value)}/>
                     </div>
-                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> Option-1</label>
+                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> {location.state.questions.options[0]}</label>
                         </div>
                     </div>
                     <div className='ui fluid card' style={{height:'50px'}}>
@@ -30,7 +33,7 @@ const TestPage = (props) => {
                         <div className='column'>
                     <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={'radioCheckTwo'} checked={radioCheck==='radioCheckTwo'} onClick={event=>setRadioCheck(event.target.value)}/>
                     </div>
-                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> Option-2</label>
+                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}>  {location.state.questions.options[1]}</label>
                         </div>
                     </div>
                     <div className='ui fluid card' style={{height:'50px'}}>
@@ -38,7 +41,7 @@ const TestPage = (props) => {
                         <div className='column'>
                     <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={'radioCheckThree'} checked={radioCheck==='radioCheckThree'} onClick={event=>setRadioCheck(event.target.value)}/>
                     </div>
-                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> Option-3</label>
+                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> {location.state.questions.options[2]}</label>
                         </div>
                     </div>
                     <div className='ui fluid card' style={{height:'50px'}}>
@@ -46,7 +49,7 @@ const TestPage = (props) => {
                         <div className='column'>
                     <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={'radioCheckFour'} checked={radioCheck==='radioCheckFour'} onClick={event=>setRadioCheck(event.target.value)}/>
                     </div>
-                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> Option-4</label>
+                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}> {location.state.questions.options[3]}</label>
                         </div>
                     </div>
                         </form>
