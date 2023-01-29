@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import imgSeven from '../images/imgSeven.jpg';
 import {useNavigate} from 'react-router-dom';
 
@@ -28,9 +28,7 @@ const navigate = useNavigate();
 // }
 
 const sendData = () => {
-    //setQuestions("Who invented the Internet?");
-    console.log(questions.length);
-    navigate("/TestPage",{state:{questions:questions[0]}});
+    navigate("/TestPage",{state:{questions:questions}});
 }
 
     return(
