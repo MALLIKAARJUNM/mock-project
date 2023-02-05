@@ -10,6 +10,7 @@ import Navbar from './component/Navbar.js';
 import TestBundle from './component/TestBundle.js';
 import Instructions from './component/Instructions.js';
 import TestPage from './component/TestPage.js';
+import CompletedPage from './component/CompletedPage.js';
 
 function App() {
   //const [questions, setQuestions] = useState("");
@@ -27,6 +28,7 @@ function App() {
         <Route path="TestBundle" element={<TestBundle />} />
         <Route path="Instructions" element={<Instructions />} />
         <Route path="TestPage" element={<TestPage />} />
+        <Route path="CompletedPage" element={<CompletedPage />} />
         </Routes>
       </BrowserRouter>
     </div>

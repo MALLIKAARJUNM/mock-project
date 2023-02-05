@@ -4,14 +4,6 @@ import {useNavigate} from 'react-router-dom';
 
 const Instructions = () => {
 
-//     const [questions, setQuestions] = useState([{question:'Who invented the Internet?',
-// options:['Steve Jobs','More than one person','Al Gore','William Shockley'],
-// answer:'More than one person',
-// savedAnswer:''},
-// {question:'This man is known for starting the company Microsoft back in the year 1975. Since then, he has become one of the richest people in the world. What is the name of this person?',
-// options:['Steve Jobs','Bill Gates','Konrad Zuse','Charles Babbage'],
-// answer:'Bill Gates',
-// savedAnswer:''}]);
 const [questions, setQuestions] = useState([{question:'Who invented the Internet?',
 options:['Steve Jobs','More than one person','Al Gore','William Shockley'],
 answer:'More than one person',
