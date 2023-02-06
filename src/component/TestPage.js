@@ -9,22 +9,22 @@ const TestPage = () => {
     const [radioCheck, setRadioCheck] = useState('');
     const location = useLocation();
     const [index, setIndex] = useState();
-    //const [data, setData] = useState({});
     const navigate = useNavigate();
     const [question, setQuestion] = useState("");
     const [options, setOptions] = useState([]);
-    const [correctAnswered, setCorrectAnswered] = useState(0);
+    const [correctAnswered, setCorrectAnswered] = useState([]);
     const [answer,setAnswer] = useState("");
     const [savedAnswer, setSavedAnswer] = useState([""]);
     const [next, setNext] = useState("saveAnswer");
     const [count, setCount] = useState(0);
+    const [resultObj, setResultObj] = useState({});
 
     const onReset = (event) => {
         setRadioCheck('');
     }
 
     useEffect(()=>{
-        console.log(savedAnswer);
+        //console.log(savedAnswer);
         if(next == "saveAnswer" && count<location.state.questions.length){
             setIndex(count+1);
             setQuestion(location.state.questions[count].question);
@@ -35,17 +35,26 @@ const TestPage = () => {
     }
     else if(count==location.state.questions.length){
         for(var countTwo=0;countTwo<location.state.questions.length;countTwo++){
+            // console.log(location.state.questions[countTwo].answer);
+            //          console.log(savedAnswer[countTwo]);
                     if(location.state.questions[countTwo].answer==savedAnswer[countTwo]){
-                        setCorrectAnswered(correctAnswered+1);
-                        console.log(correctAnswered);
+                        correctAnswered.push(countTwo);
+                        //console.log(correctAnswered);
                     }
                     // console.log(location.state.questions[countTwo].answer);
                     // console.log(savedAnswer[countTwo]);
                 }
-                //console.log(correctAnswered);
-        moveFinish();
+                moveFinish(location.state.questions.length, correctAnswered);
     }
     },[next, count])
+
+    // useEffect(()=>{
+    //     if(correctAnswered==true){
+    //         setResult(num+1);
+    //         console.log(result);
+    //     }
+    //     moveFinish();
+    // },[correctAnswered])
 
     useEffect(()=>{
         //console.log(savedAnswer);
@@ -53,9 +62,10 @@ const TestPage = () => {
         //console.log(savedAnswer);
     },[radioCheck])
 
-    const moveFinish = () =>{
+    const moveFinish = (numOfQuestions, result) =>{
         //calculateResult();
-        navigate("/CompletedPage",{state:{correctAnswered:correctAnswered}});
+        setResultObj({questionsCount:numOfQuestions,marks:result});
+        navigate("/CompletedPage",{state:{resultObj:resultObj}});
     }
 
     // const calculateResult = () =>{
@@ -69,14 +79,9 @@ const TestPage = () => {
     const saveData = (event) => {
         //console.log(data);
         //navigate("/TestPage");
+        setRadioCheck('');
         setNext(event.target.value);
         setCount(count+1);
-    }
-
-    const finishPage=()=>{
-        return(
-            <div></div>
-        )
     }
      
     return(
