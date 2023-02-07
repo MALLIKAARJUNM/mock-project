@@ -17,7 +17,7 @@ const TestPage = () => {
     const [savedAnswer, setSavedAnswer] = useState([""]);
     const [next, setNext] = useState("saveAnswer");
     const [count, setCount] = useState(0);
-    const [resultObj, setResultObj] = useState({});
+    const [resultObj, setResultObj] = useState({questionsCount:0,marks:[]});
 
     const onReset = (event) => {
         setRadioCheck('');
@@ -64,7 +64,10 @@ const TestPage = () => {
 
     const moveFinish = (numOfQuestions, result) =>{
         //calculateResult();
+        // console.log(numOfQuestions);
+        // console.log(result)
         setResultObj({questionsCount:numOfQuestions,marks:result});
+        console.log(resultObj);
         navigate("/CompletedPage",{state:{resultObj:resultObj}});
     }
 
@@ -86,12 +89,20 @@ const TestPage = () => {
      
     return(
         <div className='ui background' style={{backgroundImage:`url(${imgEight})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
-        <div className='ui container' style={{marginTop:'5%', marginLeft:'20%'}}>
-            <div className="ui content" style={{fontSize:'20px'}}>
+            <div className='ui right floated button'>
+            <button class="positive ui button">Next</button>
+            </div>
+            <div className='ui left floated button'>
+            <button class="negative ui button">Prev</button>
+            </div>
+
+        <div className='ui container' style={{marginTop:'7%', marginLeft:'20%'}}>
+            <div className="ui content" style={{fontSize:'20px', fontWeight:'bold'}}>
                 {index + " . " + question}
                 </div>
                 <br />
                     <form className='ui form'>
+                        <div className='ui info message' style={{color:'black'}}>
                     <div className='ui fluid card' style={{height:'50px'}}>
                     <div className='ui two column grid'>
                         <div className='column'>
@@ -124,9 +135,10 @@ const TestPage = () => {
                         <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}>{options[3]}</label>
                         </div>
                     </div>
+                    </div>
                         </form>
                     </div>
-                    <div className="ui right floated buttons" style={{marginTop:'10%', marginRight:'2%'}}>
+                    <div className="ui right floated buttons" style={{marginTop:'8%', marginRight:'2%'}}>
   <button className="ui button" onClick={onReset}>Reset</button>
   <div className="or"></div>
   <button className="ui positive button active" value="saveAnswer" onClick={saveData}>Save</button>

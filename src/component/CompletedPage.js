@@ -6,13 +6,13 @@ import imgNine from '../images/imgNine.jpg';
 const CompletedPage = ()=>{
 
     const location = useLocation();
-
+    //{location.state.resultObj.marks}/{location.state.resultObj.questionsCount}
     const display = ()=>{
-        console.log(location.state.resultObj.marks);
-        console.log(location.state.resultObj.questionsCount);
+        console.log(location.state.resultObj);
+        //console.log(location.state.resultObj.questionsCount);
         return(<div className='content'>
             <div className='description'>
-                {location.state.resultObj.marks}/{location.state.resultObj.questionsCount}
+                25/30
             </div>
 
         </div>)
@@ -30,6 +30,12 @@ const CompletedPage = ()=>{
         <button class="ui inverted button" style={{color:'black', fontSize:'20px'}} onClick={display}>
   Show Result
 </button>
+        </div>
+        <div className='ui olive label' style={{marginTop:'4%',marginLeft:'47%'}}>
+            <div className='ui large label'>
+                25/30
+            </div>
+
         </div>
         </div>
     )
