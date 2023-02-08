@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import imgSeven from '../images/imgSeven.jpg';
 import {useNavigate} from 'react-router-dom';
+import Navbar from './Navbar';
+
 
 const Instructions = () => {
 
@@ -25,6 +27,7 @@ const sendData = () => {
 
     return(
         <div className='ui background' style={{backgroundImage:`url(${imgSeven})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
+            <Navbar />
             <div className='ui container'>
         <h1 className='ui header' style={{fontSize:'50px', textAlign:'center'}}>
             Instructions

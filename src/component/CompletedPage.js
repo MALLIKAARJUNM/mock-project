@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import imgNine from '../images/imgNine.jpg';
+import Navbar from './Navbar';
+
 
 
 const CompletedPage = ()=>{
@@ -21,6 +23,7 @@ const CompletedPage = ()=>{
 
     return(
         <div className='ui background' style={{backgroundImage:`url(${imgNine})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
+        <Navbar />
         <div className='ui fluid container'>
         <div className='ui fluid header' style={{textAlign:'center', marginTop:'5%'}}>
             <h3>Test Completed Successfully!!!</h3>
