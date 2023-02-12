@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import imgEight from '../images/imgEight.jpg';
 import {useNavigate} from 'react-router-dom';
+import Section from './Section';
 
 
 const TestPage = () => {
@@ -17,7 +18,8 @@ const TestPage = () => {
     const [savedAnswer, setSavedAnswer] = useState([""]);
     const [next, setNext] = useState("saveAnswer");
     const [count, setCount] = useState(0);
-    const [resultObj, setResultObj] = useState({questionsCount:0,marks:[]});
+    const [resultObj, setResultObj] = useState({});
+    const [noOfQuestions, setNoOfQuestions] = useState();
 
     const onReset = (event) => {
         setRadioCheck('');
@@ -48,13 +50,9 @@ const TestPage = () => {
     }
     },[next, count])
 
-    // useEffect(()=>{
-    //     if(correctAnswered==true){
-    //         setResult(num+1);
-    //         console.log(result);
-    //     }
-    //     moveFinish();
-    // },[correctAnswered])
+    useEffect(()=>{
+        setNoOfQuestions(location.state.questions.length);
+    },[])
 
     useEffect(()=>{
         //console.log(savedAnswer);
@@ -62,11 +60,11 @@ const TestPage = () => {
         //console.log(savedAnswer);
     },[radioCheck])
 
-    const moveFinish = (numOfQuestions, result) =>{
+    const moveFinish = (questionsCount, marks) =>{
         //calculateResult();
-        // console.log(numOfQuestions);
-        // console.log(result)
-        setResultObj({questionsCount:numOfQuestions,marks:result});
+        console.log(questionsCount);
+        console.log(marks);
+        setResultObj({correctAnswered:correctAnswered});
         console.log(resultObj);
         navigate("/CompletedPage",{state:{resultObj:resultObj}});
     }
@@ -89,29 +87,27 @@ const TestPage = () => {
      
     return(
         <div className='ui background' style={{backgroundImage:`url(${imgEight})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
-            <div className='ui right floated button'>
-            <button class="positive ui button">Next</button>
-            </div>
-            <div className='ui left floated button'>
-            <button class="negative ui button">Prev</button>
-            </div>
-
-        <div className='ui container' style={{marginTop:'7%', marginLeft:'20%'}}>
+            <Section noOfQuestions={noOfQuestions}>
+            
+                </Section>
+        <div className='ui container' style={{marginTop:'-15%', marginLeft:'20%'}}>
             <div className="ui content" style={{fontSize:'20px', fontWeight:'bold'}}>
                 {index + " . " + question}
                 </div>
                 <br />
-                    <form className='ui form'>
+                    <form className='ui form' style={{width:'800px'}}>
                         <div className='ui info message' style={{color:'black'}}>
-                    <div className='ui fluid card' style={{height:'50px'}}>
-                    <div className='ui two column grid'>
+                            {options.map((element)=>{
+                                
+                                return <div className='ui fluid card' style={{height:'50px'}} >
+                            <div className='ui two column grid'>
                         <div className='column'>
-                    <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={options[0]} checked={radioCheck===options[0]} onClick={event=>setRadioCheck(event.target.value)}/>
+                    <input type='radio' style={{marginTop:'5%', marginLeft:'2%'}} checked={radioCheck===element}/>
                     </div>
-                        <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}>{options[0]}</label>
-                        </div>
-                    </div>
-                    <div className='ui fluid card' style={{height:'50px'}}>
+                        <label style={{marginTop:'3%', marginLeft:'-47%', textAlign:'left'}}>&emsp;{element}</label>
+                        </div>                    </div>
+})}
+                    {/* <div className='ui fluid card' style={{height:'50px'}}>
                     <div className='ui two column grid'>
                         <div className='column'>
                     <input type='radio' style={{marginTop:'3%', marginLeft:'2%'}} value={options[1]} checked={radioCheck===options[1]} onClick={event=>setRadioCheck(event.target.value)}/>
@@ -134,11 +130,12 @@ const TestPage = () => {
                     </div>
                         <label style={{marginTop:'2%', marginLeft:'-47%', textAlign:'left'}}>{options[3]}</label>
                         </div>
-                    </div>
+                    </div> */}
                     </div>
                         </form>
                     </div>
                     <div className="ui right floated buttons" style={{marginTop:'8%', marginRight:'2%'}}>
+                    <button className="ui button" style={{marginRight:'5%'}}>section</button>              
   <button className="ui button" onClick={onReset}>Reset</button>
   <div className="or"></div>
   <button className="ui positive button active" value="saveAnswer" onClick={saveData}>Save</button>

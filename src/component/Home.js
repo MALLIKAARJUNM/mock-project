@@ -41,7 +41,7 @@ const Home = () => {
       Mathematics questions
       </div>
       <div class="description" style={{fontWeight:'bold'}}>
-      Number of Questions 30 and timing 50min
+      Number of Questions 30 and duration 50min
       </div>
     </div>
     <div class="extra content">
