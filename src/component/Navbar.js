@@ -1,14 +1,22 @@
 import React from 'react';
 
+
 const Navbar = () => {
-    
-    return(<div class="ui inverted menu" >
-        <div className="ui inverted pointing menu" >
-        <a className="item" href="/Home">Home</a>
-        <a className="item" href="/Contact">Contact</a>
-        <a className="item" href="/About">About</a>
-        <a className="item" href="/LoginForm" style={{marginLeft:'365%'}}>Login</a>
-        </div>
+
+    return (
+        <div>
+            <nav className="navbar navbar-dark bg-dark">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <a className="navbar-brand" href="/">Moders MCQ</a>
+                        <a href='/contact'><button type='button' className='btn btn-secondary me-2'>ContactUS</button></a>
+                        <a href='/about'><button type='button' className='btn btn-secondary'>AboutUS</button></a>
+                    </div>
+                    <div>
+                        <a href='/loginform'><button type='button' className='btn btn-secondary'>Login</button></a>
+                    </div>
+                </div>
+            </nav>
         </div>)
 }
 
