@@ -1,23 +1,30 @@
 import React from 'react';
 import imgSeven from '../images/imgSeven.jpg';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../component/Navbar';
 
 
 const Instructions = () => {
 
+    const navigate = useNavigate();
+
+    const navigateTo = () => {
+        navigate('/TestPage');
+    }
+
 
     return(
-        <div className='ui background' style={{backgroundImage:`url(${imgSeven})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
+        <div className='bg-image' style={{backgroundImage:`url(${imgSeven})`, backgroundSize:'cover', position:'fixed', minWidth:'100%', minHeight:'100%'}}>
             <Navbar />
-            <div className='ui container'>
-        <h1 className='ui header' style={{fontSize:'50px', textAlign:'center'}}>
+            <div className='container' style={{overflow:'auto'}}>
+        <h1 className='card-title' style={{fontSize:'50px', textAlign:'center'}}>
             Instructions
         </h1>
         <hr style={{borderBlockColor:'black'}} />
         </div>
-        <p className='ui description' style={{marginLeft:'10%', color:'blue'}}>
+        <p className='card-text text-primary' style={{marginLeft:'10%'}}>
             <ul>
-        <li>There are total 30 questions and total duration of the test is 90 minutes.</li><br />
+        <li>There are total 30 questions and total duration of the test is 35 minutes.</li><br />
         <li>Each question carries 1 mark. There is no negative marking.</li><br />
         <li>Mark your answer by clicking the appropriate radio button to Save your answer. To change your answer, please click the radio button that you think is appropriate.</li><br />
 <li>Click on Reset button to unselect answer.</li><br />
@@ -27,9 +34,7 @@ const Instructions = () => {
 </ul>
 All the best!!
             </p>
-            {/* <a href='/TestPage' > */}
-                <button className="positive ui button" style={{marginLeft:'47%'}}>Start</button>
-                {/* </a> */}
+                <button className="btn btn-success" style={{marginLeft:'47%'}} onClick={navigateTo}>Start</button>
         </div>
     )
 }

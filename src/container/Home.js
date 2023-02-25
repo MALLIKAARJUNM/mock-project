@@ -17,7 +17,10 @@ const Home = () => {
                     </span>
                 </div>
             </div>
+            <div>
             <TestCard />
+            </div>
+            
         </div>
     )
 }

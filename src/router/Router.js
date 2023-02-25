@@ -6,6 +6,7 @@ import LoginForm from '../container/LoginForm'
 import RegistrationForm from '../container/RegistrationForm'
 import Instructions from '../container/Instructions'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TestPage from '../container/TestPage';
 
 
 const Router = () => {
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="LoginForm" element={<LoginForm />} />
           <Route path="RegistrationForm" element={<RegistrationForm />} />
           <Route path="Instructions" element={<Instructions />} />
+          <Route path="TestPage" element={<TestPage />} />
         </Routes>
       </BrowserRouter>
     </div>
