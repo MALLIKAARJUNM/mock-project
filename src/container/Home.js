@@ -1,6 +1,6 @@
 import React from 'react';
 import imgOne from '../images/imgOne.jpg';
-import TestCard from '../component/TestCard';
+import TestInstCard from '../component/TestInstCard';
 import Navbar from '../component/Navbar';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-            <TestCard />
+            <TestInstCard />
             </div>
             
         </div>
