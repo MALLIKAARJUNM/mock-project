@@ -15,7 +15,7 @@ const TestCard = (props) => {
     }
 
     return(
-        <div className="container" style={{ width: '65%', marginTop: '7%', marginLeft: '3%' }}>
+        <div className="container" style={{ width: '65%', marginTop: '-4%', marginRight:'45%' }}>
                 <div className="card card-inverse m-5">
                     <div className="card-body">
                         <div className="card-title">
